@@ -1,0 +1,34 @@
+const { chromium } = require('playwright');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const base = process.env.BASE_URL || 'http://127.0.0.1:8080';
+const artifacts = process.env.ARTIFACT_DIR || '/tmp/escape-tests';
+fs.mkdirSync(artifacts,{recursive:true});
+(async()=>{
+ const browser=await chromium.launch({executablePath:process.env.BROWSER_EXECUTABLE || '/usr/bin/chromium',headless:true,args:['--no-sandbox']});
+ const page=await browser.newPage({viewport:{width:1440,height:1050}});const errors=[],badResponses=[],external=[];page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)badResponses.push(r.url());});page.on('request',r=>{if(!r.url().startsWith(base))external.push(r.url());});
+ await page.goto(base);
+ await page.screenshot({path:path.join(artifacts,'desktop.png'),fullPage:true});
+ const action=(a,id)=>page.locator(`[data-action="${a}"]${id!==undefined?`[data-id="${id}"]`:''}`).click();
+ const close=()=>page.locator('#close-modal').click();
+ assert.equal(await page.locator('.hotspot').count(),7);
+ assert(await page.locator('#final-puzzle').isDisabled());
+ for(const id of ['laptop','notebook','poster','window','bag']){await page.locator(`[data-object="${id}"]`).click();assert(await page.locator('#modal').isVisible());if(id==='bag'){await action('teacher');assert.match(await page.locator('#modal-body').innerText(),/Giáo viên/);}await close();}
+ await page.locator('[data-object="door"]').click();assert.match(await page.locator('#modal-title').innerText(),/gợi ý/);await close();
+ await page.locator('#open-phone').click();await action('reply','safe');await action('collect','private');await action('data-reply','refuse');await action('phone-tab','profile');await action('collect','profile');await action('phone-tab','offer');await action('collect','link');
+ assert.equal(await page.locator('#score').innerText(),'75');await close();assert(await page.locator('#final-puzzle').isEnabled());
+ await page.reload();assert.equal(await page.locator('#clue-count').innerText(),'3 / 3');assert.equal(await page.locator('#score').innerText(),'75');
+ await page.locator('#final-puzzle').click();await action('answer',0);await action('next-quiz');await action('answer',1);await action('next-quiz');await action('answer',2);await action('complete');assert.equal(await page.locator('#score').innerText(),'100');assert.match(await page.locator('#modal-title').innerText(),/Bình tĩnh/);await page.screenshot({path:path.join(artifacts,'result.png'),fullPage:true});await close();assert.equal(await page.locator('#progress-text').innerText(),'5 / 5');
+ await page.reload();assert.match(await page.locator('#stage2-status').innerText(),/ĐÃ MỞ/);await page.locator('#final-puzzle').click();assert.match(await page.locator('#modal-body').innerText(),/100/);await close();
+ await page.locator('#restart').click();await action('close');assert.equal(await page.locator('#score').innerText(),'100');await page.locator('#restart').click();await action('confirm-restart');assert.equal(await page.locator('#score').innerText(),'0');assert.equal(await page.locator('#clue-count').innerText(),'0 / 3');
+ await page.locator('#open-phone').click();await action('reply','risky');await action('data-reply','share');assert.match(await page.locator('#modal-body').innerText(),/không có thông tin nào được gửi/);assert.equal(await page.locator('input').count(),0);await action('collect','private');await action('phone-tab','profile');await action('collect','profile');assert.equal(await page.locator('[data-action="collect"][data-id="profile"]').count(),0);await action('phone-tab','offer');await action('collect','link');await action('quiz');await action('answer',1);assert.match(await page.locator('#modal-title').innerText(),/Chưa mở/);await page.reload();await page.locator('#final-puzzle').click();await action('answer',0);await action('next-quiz');await action('answer',1);await action('next-quiz');await action('answer',2);await action('complete');assert.equal(await page.locator('#score').innerText(),'67');await close();
+ await page.locator('#restart').click();await action('confirm-restart');await page.locator('#sound').click();assert.equal(await page.locator('#sound').getAttribute('aria-pressed'),'true');await page.locator('#sound').click();assert.equal(await page.locator('#sound').getAttribute('aria-pressed'),'false');
+ await page.locator('#room').focus();const before=await page.locator('#minh').evaluate(e=>parseFloat(e.style.left));await page.keyboard.press('ArrowRight');const after=await page.locator('#minh').evaluate(e=>parseFloat(e.style.left));assert(after>before);
+ await page.locator('#open-phone').click();await action('reply','curious');await action('data-reply','ask');assert.equal(await page.locator('#score').innerText(),'15');await close();
+ const ipad=await browser.newContext({viewport:{width:820,height:1180},isMobile:true,hasTouch:true,deviceScaleFactor:1});const tab=await ipad.newPage();await tab.goto(base);assert(await tab.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await tab.locator('#open-phone').tap();await tab.locator('[data-action="reply"][data-id="safe"]').tap();await tab.locator('[data-action="phone-tab"][data-id="profile"]').tap();await tab.screenshot({path:path.join(artifacts,'ipad.png'),fullPage:true});await tab.locator('#close-modal').tap();
+ await tab.setViewportSize({width:390,height:844});assert(await tab.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await tab.screenshot({path:path.join(artifacts,'mobile.png'),fullPage:true});
+ const offline=await browser.newPage();await offline.goto(base);await offline.context().setOffline(true);await offline.locator('#open-phone').click();assert.match(await offline.locator('#modal-body').innerText(),/5.000/);await offline.context().setOffline(false);
+ const blocked=await browser.newPage();await blocked.addInitScript(()=>{Object.defineProperty(window,'localStorage',{get(){throw new Error('Storage disabled')}})});await blocked.goto(base);assert.match(await blocked.locator('#save-status').innerText(),/Không thể tự lưu/);await blocked.locator('#open-phone').click();await blocked.locator('[data-action="reply"][data-id="safe"]').click();assert.equal(await blocked.locator('#score').innerText(),'15');
+ assert.deepEqual(errors,[]);assert.deepEqual(badResponses,[]);assert.deepEqual(external,[]);console.log('PASS: desktop full perfect path; risk path; all dialogue choices; wrong answer retry & save; unique rewards; reload; reset/cancel; sound; keyboard; objects; iPad touch; mobile layout; offline interaction; unavailable storage; no JS errors.');await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});
