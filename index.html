@@ -20,9 +20,12 @@
 <div class="narration"><div class="narrator-avatar">M</div><div><strong>MINH <span>14 TUỔI</span></strong><p id="narration">“Điện thoại vừa sáng lên. Ai nhắn cho mình giờ này nhỉ?”</p></div><button id="open-phone" class="text-button">Đọc tin nhắn ↗</button></div></section>
 <aside class="side-panel"><section class="mission-card"><div class="eyebrow">NHIỆM VỤ MÀN 01</div><h2>Đừng vội tin<span>!</span></h2><p>Khám phá căn phòng và kiểm chứng lời mời từ Shadow_88.</p><div class="progress-heading"><span>Tiến trình điều tra</span><strong id="progress-text">0 / 5</strong></div><progress id="progress" max="5" value="0" aria-label="Tiến trình màn 1"></progress><ul id="tasks" class="task-list"></ul><button id="final-puzzle" class="primary-button" disabled>Mở khóa cánh cửa <span>→</span></button><small id="puzzle-lock-note">Hoàn thành điều tra để giải câu đố cuối màn.</small></section>
 <section class="inventory-card"><div class="section-title"><h2>Túi manh mối</h2><span id="clue-count">0 / 3</span></div><div id="inventory"></div><div class="inventory-tip">⌕ Đọc kỹ. Kiểm chứng. Tự bảo vệ mình.</div></section></aside></div>
+<div class="journey-bar"><span id="journey-status">HÀNH TRÌNH 0 / 5 MÀN</span><button id="journey-report" class="secondary-button" hidden>Xem báo cáo hành trình</button></div>
 <footer><span class="safe-badge">✓ KHÔNG GIAN MÔ PHỎNG AN TOÀN</span><span>Không nhập thông tin cá nhân thật. Không có liên kết nguy hiểm có thể truy cập.</span><span id="save-status">Tự động lưu trên thiết bị</span></footer>
 </main>
 <dialog id="modal" aria-labelledby="modal-title"><div class="modal-shell"><div class="modal-header"><span id="modal-kicker" class="eyebrow"></span><button id="close-modal" class="icon-button" aria-label="Đóng">×</button></div><div id="modal-body"></div></div></dialog>
 <div id="toast" role="status" aria-live="polite"></div>
+<script src="chapters.js"></script>
+<script src="journey.js"></script>
 <script src="game.js"></script>
 </body></html>

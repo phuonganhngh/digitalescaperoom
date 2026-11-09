@@ -1,37 +1,48 @@
-# Kiểm tra màn 1
+# Kiểm tra game 5 màn
 
-Đã thực thi kiểm tra bằng Playwright với Chromium trong môi trường Linux, phục vụ bằng máy chủ tĩnh. Không có bước build; đã kiểm tra cú pháp JavaScript bằng `node --check game.js`.
+Đã chạy kiểm tra tự động bằng Playwright với Chromium trong môi trường Linux, phục vụ bằng máy chủ tĩnh. JavaScript đã qua `node --check` cho `game.js`, `chapters.js`, `journey.js`. Không có bước build hoặc dependency sản xuất.
 
-## Đã đạt
+## Kiểm tra màn 1 — `tests/smoke.cjs`
 
-- Tương tác với đủ 7 đồ vật, xem lời khuyên của Lan và giáo viên, di chuyển Minh bằng phím mũi tên.
-- Chưa đủ điều kiện thì câu đố chưa mở; nút gợi ý hướng dẫn bước còn thiếu.
-- Luồng chọn an toàn → thu thập 3 manh mối → trả lời 3 câu đố → kết quả **100/100**, tiến trình **5/5**, mở khóa tên màn 2.
-- Cả ba lựa chọn hội thoại ban đầu và cả ba lựa chọn về thông tin/OTP đều hoạt động, có điểm và phản hồi riêng.
-- Nhánh đồng ý gửi thông tin dừng tại mô phỏng; không có ô nhập dữ liệu thật.
-- Chọn sai câu đố, tải lại, chọn lại đúng: ghi nhớ lần sai và tính đúng điểm giảm. Lượt chọn hai phương án thiếu an toàn và sai một câu đố đạt **67/100** sau khi hoàn thành.
-- Manh mối chỉ được tính điểm một lần.
-- Tải lại giữ điểm, manh mối, tiến trình câu đố và trạng thái hoàn thành.
-- Hủy chơi lại giữ nguyên lượt; xác nhận chơi lại xóa điểm, manh mối và tiến trình.
-- Bật/tắt âm thanh thay đổi trạng thái nút; âm thanh tổng hợp không cần tệp bên ngoài. Chưa đánh giá âm thanh bằng tai trên loa thiết bị thật.
-- Thao tác chạm trên Chromium với viewport 820 × 1180; kiểm tra bố cục hẹp 390 × 844 không tràn ngang toàn trang.
-- Sau khi tải trang, ngắt mạng vẫn mở được điện thoại và hội thoại.
-- Khi localStorage bị chặn, hiển thị thông báo không lưu được và vẫn chơi được trong phiên.
-- Không có lỗi JavaScript, lỗi tải tài nguyên hoặc yêu cầu mạng ra bên ngoài trên trang kiểm tra máy tính.
+- Tương tác bảy đồ vật, lời khuyên Lan/giáo viên, di chuyển bằng phím, khóa câu đố khi thiếu điều kiện.
+- Hoàn thành luồng an toàn đạt 100/100, đủ ba manh mối và tiến trình 5/5.
+- Tất cả lựa chọn hội thoại, hệ quả giả định, phản hồi và điểm tương ứng.
+- Nhánh đồng ý gửi dừng trong mô phỏng, không có ô nhập dữ liệu thật.
+- Sai câu đố rồi tải lại, thử lại đúng, ghi nhớ mức điểm giảm; lượt rủi ro đã kiểm tra đạt 67/100.
+- Manh mối không cộng lặp; tải lại giữ điểm và trạng thái hoàn thành.
+- Hủy/xác nhận chơi lại; bật/tắt âm thanh; thao tác cảm ứng và bố cục hẹp.
+- Mất mạng sau khi tải trang vẫn tương tác được. Chặn localStorage vẫn chơi được trong phiên và có thông báo.
 
-## Giới hạn kiểm tra
+## Kiểm tra hành trình — `tests/journey.cjs`
 
-- Mô phỏng viewport và thao tác cảm ứng bằng Chromium không thay thế kiểm tra Safari trên iPad thật. Chưa có kết quả trên thiết bị iPad hoặc Windows thật.
-- Trình duyệt Chromium được quản lý trong môi trường này chặn điều hướng `file://` bằng `ERR_BLOCKED_BY_ADMINISTRATOR`. Vì vậy cách nhấp đúp `index.html` trên Windows được hướng dẫn dựa trên cấu trúc tệp tĩnh (không fetch, không ES modules, không tài nguyên từ xa), chưa được xác nhận trực tiếp trên máy Windows. Nếu máy trường học chặn mở tệp cục bộ, dùng bản GitHub Pages.
-- Chưa xuất bản GitHub Pages hay đẩy mã nguồn lên GitHub; các bước thực hiện có trong README.
-- Màn 2–5 chưa triển khai theo phạm vi được yêu cầu.
+- Đi thực tế bằng giao diện từ màn 1 tới màn 5, không mở khóa bằng cách sửa state trong lượt chính.
+- Toàn bộ hành trình chọn an toàn đạt 100/100 từng màn và báo cáo trung bình 100/100.
+- Mỗi lựa chọn tình huống ở màn 2–5 được chạy qua: an toàn, chưa đầy đủ và thiếu an toàn.
+- Nút Điều chỉnh ghi nhận việc luyện lại; báo cáo phân biệt lựa chọn lần đầu và việc đã điều chỉnh. Điểm lần đầu được giữ.
+- Cả bốn kiểu nhiệm vụ hoạt động: chọn nhiều đáp án, phân loại, lắp ranh giới và bảng thao tác an toàn.
+- Chọn sai rồi thử lại mỗi bước, kiểm tra đúng mức giảm điểm, không khóa tiến trình.
+- Thu thập lại manh mối không cộng lặp; chưa đủ manh mối/hỗ trợ chưa mở nhiệm vụ.
+- Lưu và tải lại khi đang chọn tình huống, đang thực hiện bước chặn của màn 5, và sau khi xem báo cáo đầy đủ.
+- Dùng bản lưu màn 1 tạo từ lượt chơi thực tế để kiểm tra chuyển tiếp: giữ điểm cũ và mở được màn 2.
+- Màn chưa mở bị chặn; trạng thái lưu chọn màn 5 nhưng không có chuỗi mở khóa được đưa về màn 1.
+- Xem lại màn 1 rồi màn 5 giữ nguyên điểm; hủy chơi lại giữ lượt, xác nhận xóa toàn bộ tiến trình 5 màn.
+- Thao tác chạm ở kích thước 820 × 1180; kiểm tra không tràn ngang tại bề rộng 390, 820, 1024.
+- Không có lỗi JavaScript, lỗi tải tài nguyên hoặc yêu cầu tới nguồn bên ngoài trong các lượt theo dõi.
 
-## Chạy lại kiểm tra dành cho người phát triển
+## Giới hạn
 
-Cần Node.js, gói `playwright` và trình duyệt Chromium. Không cần những công cụ này để chơi game.
+- Các kiểm tra dùng Chromium. Mô phỏng kích thước và thao tác cảm ứng không thay thế kiểm tra trên các trình duyệt hoặc thiết bị thật khác.
+- Chưa đánh giá âm thanh bằng tai trên loa thiết bị thật.
+- Chromium được quản lý ở môi trường này chặn `file://` với `ERR_BLOCKED_BY_ADMINISTRATOR`. Cách nhấp đúp HTML được hướng dẫn dựa trên cấu trúc tệp tĩnh (không fetch, ES modules hoặc tài nguyên từ xa), chưa được xác nhận trực tiếp trên Windows. Có thể dùng GitHub Pages nếu thiết bị chặn tệp cục bộ.
+- Kiểm tra tự động không thay thế việc giáo viên rà soát tình huống và tính phù hợp với học sinh trước khi sử dụng trong lớp.
+- Chặn, báo cáo, lưu bằng chứng đều chỉ là trạng thái mô phỏng, không xác minh được hành vi của nền tảng bên ngoài.
 
-1. Tại thư mục dự án, chạy `python3 -m http.server 8080 --bind 0.0.0.0`.
-2. Trong terminal khác chạy `node tests/smoke.cjs`.
-3. Khi cần, đặt `BASE_URL`, `BROWSER_EXECUTABLE` (đường dẫn Chromium) và `ARTIFACT_DIR` (thư mục ảnh chụp).
+## Chạy lại dành cho người phát triển
 
-Trong môi trường cloud hiện tại, Playwright và Chromium đã có sẵn. Script tự tạo ảnh chụp minh họa ngoài repository. Kiểm tra có thể chạy lại mà không sửa mã nguồn hoặc cài dependency vào game.
+Cần Node.js, gói `playwright` và Chromium; không cần các công cụ này để chơi game.
+
+1. Tại thư mục dự án: `python3 -m http.server 8080 --bind 0.0.0.0`.
+2. Trong terminal khác: `node tests/smoke.cjs` và `node tests/journey.cjs`.
+3. Có thể đặt `BASE_URL`, `BROWSER_EXECUTABLE`, `ARTIFACT_DIR` để chọn máy chủ, trình duyệt và thư mục ảnh.
+
+Các script ghi ảnh chụp ra ngoài repository theo mặc định, không sửa mã nguồn hoặc cài dependency vào game.

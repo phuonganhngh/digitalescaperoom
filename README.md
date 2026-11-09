@@ -1,70 +1,86 @@
 # DIGITAL ESCAPE ROOM – THOÁT HIỂM SỐ
 
-Game giáo dục tiếng Việt cho học sinh THCS, chạy trên trình duyệt. **Màn 1 đã có thể chơi từ đầu đến cuối**. Màn 2–5 chỉ có tên và giới thiệu trên bản đồ, chưa có phần chơi.
+Game giáo dục tiếng Việt cho học sinh THCS, chạy trên trình duyệt. **Đã có đủ 5 màn chơi liên kết và báo cáo cuối hành trình.** HTML, CSS, JavaScript thuần; không cần API trả phí, backend hoặc tài khoản.
 
-## Định hướng và phạm vi
+## Chơi trực tuyến
 
-Trò chơi mô phỏng hành trình nhận diện và thoát khỏi sự thao túng tâm lý trên không gian mạng. [Bản mô tả thống nhất](DINH_HUONG.md) là định hướng cho phiên bản đầy đủ.
-
-Hành trình gồm: **Lời mời bí ẩn → Chiếc bẫy lòng tin → Bí mật nguy hiểm → Ranh giới cuối cùng → Lối thoát an toàn**.
-
-Phiên bản hiện tại hoàn thiện màn 1; màn 2–5 và báo cáo kỹ năng cá nhân hóa sẽ được phát triển tiếp sau khi màn 1 được xác nhận. Mỗi màn dự kiến có không gian và nhiệm vụ riêng. Lựa chọn trong màn 1 ảnh hưởng đến lời thoại, phản hồi, điểm kỹ năng và một số tình tiết; các nhánh hiện hội tụ về cùng nhiệm vụ mở cửa. Người chơi có thể điều chỉnh cách ứng phó ở bước tiếp theo, thử lại câu đố hoặc chơi lại để chọn phương án hội thoại khác. Kết quả hiện có điểm màn 1 và bài học chung, chưa có báo cáo phân tích từng quyết định.
+Mở **https://phuonganhngh.github.io/digitalescaperoom/** sau khi GitHub Pages triển khai phiên bản mới. Nếu vẫn thấy bản cũ, tải lại trang; tiến trình lưu trên cùng trình duyệt được giữ lại. Người đã hoàn thành màn 1 có thể chọn màn 2 trên bản đồ.
 
 ## Chạy thử trên Windows (không cần biết lập trình)
 
-1. Mở thư mục `digitalescaperoom` có các tệp `index.html`, `style.css`, `game.js` và thư mục `assets`.
-2. Nếu tải từ GitHub: ở trang repository, nhấp nút **Code** màu xanh → **Download ZIP**. Nhấp chuột phải vào ZIP → **Extract All… / Giải nén tất cả** → **Extract / Giải nén**.
-3. Trong thư mục đã giải nén, nhấp đúp **index.html**. Game sẽ mở bằng trình duyệt mặc định. Nếu chưa mở được, nhấp chuột phải vào `index.html` → **Open with / Mở bằng** → **Microsoft Edge** hoặc **Google Chrome**.
-4. Nhấp **Điện thoại** trên bàn hoặc **Đọc tin nhắn**. Đọc rồi chọn câu trả lời.
-5. Trên điện thoại có ba tab **Tin nhắn**, **Hồ sơ**, **Phần thưởng**. Tìm dấu hiệu đáng ngờ và nhấp **Ghi nhận manh mối**. Có ba manh mối tất cả.
-6. Trong tab **Tin nhắn**, chọn cách xử lý yêu cầu thông tin và mã xác nhận.
-7. Đóng điện thoại bằng nút **×**. Nhấp **Mở khóa cánh cửa** hoặc **Cửa ra · Câu đố** và trả lời ba câu hỏi để xem kết quả.
+1. Trên trang repository GitHub, nhấp **Code → Download ZIP**.
+2. Nhấp chuột phải vào ZIP → **Extract All… / Giải nén tất cả → Extract**.
+3. Mở thư mục đã giải nén, nhấp đúp **index.html**. Nếu cần, chọn **Open with / Mở bằng → Microsoft Edge** hoặc **Google Chrome**.
+4. Nhấp **Đọc tin nhắn**, đọc và chọn cách trả lời. Khám phá các đồ vật để tìm đủ 3 manh mối.
+5. Nhấp **Mở khóa cánh cửa**, giải câu đố và chọn **Tiếp tục màn 2**.
+6. Trong màn 2–5, mở **Hồ sơ tin nhắn**, luyện hai lựa chọn, khám phá **Dữ kiện 01–03** và gặp **Người hỗ trợ**. Sau đó nhấp **Thực hiện nhiệm vụ**.
+7. Hoàn thành màn 5 để xem **báo cáo toàn hành trình**. Có thể xem lại các màn đã mở trên bản đồ.
 
-Không cài phần mềm hay tài khoản, không cần Internet để chơi sau khi tải về. Giữ nguyên vị trí các tệp và thư mục `assets`; không chỉ tải riêng tệp HTML. Phím mũi tên di chuyển Minh; nhấp hoặc chạm đồ vật để Minh đi tới và tương tác.
+Giữ nguyên toàn bộ tệp và thư mục `assets`; không chỉ tải riêng HTML. Không cần Internet để chơi bản đã tải về. Nếu trình duyệt chặn tệp cục bộ, dùng địa chỉ trực tuyến. Phím mũi tên di chuyển Minh; nhấp/chạm đồ vật để khám phá. Nút **?** góc trên gợi ý bước còn thiếu.
 
-Bạn cũng có thể chơi trực tuyến bằng cách mở địa chỉ GitHub Pages sau khi xuất bản.
+## Nội dung 5 màn
 
-## Nút hỗ trợ và lưu tiến trình
+| Màn | Không gian | Nội dung và nhiệm vụ cuối |
+|---|---|---|
+| 1 – Lời mời bí ẩn | Phòng ngủ lúc 20:30 | Kiểm tra tài khoản, phần thưởng và yêu cầu OTP; mở ba chốt an toàn. |
+| 2 – Chiếc bẫy lòng tin | Góc học tập sáng hôm sau | Cùng Lan xem tin đã lưu; chọn hai lời nhắn dùng sự thân thiết để thao túng. |
+| 3 – Bí mật nguy hiểm | Góc thư viện | Phân biệt bất ngờ có giới hạn với bí mật gây sợ hãi; giữ mạng lưới hỗ trợ. |
+| 4 – Ranh giới cuối cùng | Phòng tư vấn | Diễn tập từ chối gặp riêng và ứng phó đe dọa; lắp kế hoạch ranh giới ba bước. |
+| 5 – Lối thoát an toàn | Trạm an toàn số | Thực hành lưu bằng chứng, chặn, báo cáo và xác nhận kế hoạch hỗ trợ trên bảng mô phỏng. |
 
-- **?** (góc trên): gợi ý bước tiếp theo, không trừ điểm.
-- **♪**: bật/tắt âm thanh tạo bằng trình duyệt, mặc định tắt.
-- **↺**: chơi lại; có bước xác nhận trước khi xóa lượt hiện tại.
-- Túi manh mối: nhấp một manh mối để đọc lại hoặc một ô trống để xem vị trí gợi ý.
-- Game tự lưu trong localStorage trên trình duyệt hiện tại. Chế độ riêng tư, chặn lưu trữ, xóa dữ liệu trang hoặc chuyển trình duyệt/địa chỉ có thể làm mất lượt. Nếu không thể lưu, game sẽ báo ở chân trang và vẫn chơi được trong phiên hiện tại. Với tệp mở trực tiếp, khả năng giữ dữ liệu phụ thuộc trình duyệt; dùng cùng trình duyệt và cùng tệp khi quay lại. GitHub Pages là cách chạy ổn định hơn.
+Màn sau không yêu cầu Minh tiếp tục liên lạc với tài khoản đáng ngờ. Minh cùng Lan hoặc giáo viên phân tích hồ sơ đã lưu và diễn tập. Các nhánh khác nhau về lời thoại, hệ quả giả định, điểm và phản hồi, hội tụ về cùng nhiệm vụ cuối màn. Không có các kết thúc khác nhau.
 
-## Điểm kỹ năng màn 1: tối đa 100
+Màn 1 giữ lựa chọn trong mỗi lượt; có thể thay đổi cách ứng phó ở tình huống tiếp theo. Màn 2–5 cho phép bấm **Điều chỉnh** ngay sau phản hồi cho lựa chọn thiếu an toàn. Game ghi nhận việc điều chỉnh, giữ điểm lựa chọn lần đầu. Tất cả nhiệm vụ cuối màn đều được thử lại.
 
-| Hoạt động | Điểm |
-|---|---:|
-| Ghi nhận ba manh mối | 15 × 3 = 45 |
-| Trả lời lời mời: kiểm chứng / hỏi danh tính / nhận ngay | 15 / 10 / 0 |
-| Ứng phó yêu cầu dữ liệu: từ chối / hỏi lại / đồng ý | 15 / 5 / 0 |
-| Ba chốt câu đố cuối màn | 8 + 8 + 9 = 25 |
+[Bản mô tả và phạm vi chi tiết](DINH_HUONG.md).
 
-Mỗi hoạt động chỉ tính điểm một lần. Mỗi chốt câu đố chọn sai ít nhất một lần nhận ít hơn 3 điểm, vẫn được thử lại để hoàn thành. Mọi lựa chọn hội thoại đều có phản hồi và diễn biến riêng. Lựa chọn chưa an toàn không khóa đường học tiếp; muốn thử hướng khác có thể chơi lại.
+## Điểm và báo cáo
+
+Mỗi màn tối đa **100 điểm**. Điểm toàn hành trình là **trung bình cộng điểm 5 màn**, làm tròn, tối đa 100; màn chưa chơi tính 0 trong báo cáo tạm thời.
+
+| Hoạt động | Màn 1 | Màn 2–5 (mỗi màn) |
+|---|---:|---:|
+| Ba manh mối | 45 | 45 |
+| Hai lựa chọn tình huống | Tối đa 30 | Tối đa 30 |
+| Kết nối người hỗ trợ | Không tính điểm riêng | 5 |
+| Nhiệm vụ cuối màn | 25 | 20 |
+
+- Màn 1: lựa chọn lời mời nhận 15/10/0 điểm; ứng phó yêu cầu thông tin nhận 15/5/0 điểm. Ba chốt nhận 8/8/9 điểm; mỗi chốt đã chọn sai giảm 3 điểm, chỉ giảm một lần.
+- Màn 2–5: mỗi lựa chọn lần đầu nhận 15/5/0 điểm. Điều chỉnh giúp luyện cách ứng phó, không cộng lặp điểm.
+- Màn 2: nhiệm vụ chọn nhiều đáp án nhận 20 điểm; từng chọn sai giảm 2 điểm một lần.
+- Màn 3–5: ba bước nhận 7/7/6 điểm; mỗi bước từng chọn sai giảm 2 điểm một lần.
+- Khám phá lại, đọc gợi ý hoặc xem lại kết quả không cộng/trừ thêm điểm.
+- Báo cáo ghi điểm từng màn, lựa chọn đã thực hiện, điều cần luyện thêm, việc đã điều chỉnh và các bước nhiệm vụ cần thử lại. Đây là điểm luyện tập, không phải công cụ chẩn đoán năng lực.
+
+## Lưu tiến trình và các nút
+
+- **?**: gợi ý, không trừ điểm.
+- **♪**: bật/tắt âm thanh hiệu ứng, mặc định tắt.
+- **↺**: chơi lại **toàn bộ 5 màn**, có xác nhận trước khi xóa. Hủy sẽ giữ nguyên lượt.
+- **Bản đồ:** chọn màn đã mở để xem lại, không tự xóa điểm.
+- **Xem báo cáo hành trình:** xuất hiện sau khi hoàn thành màn 1; có thể xem tạm thời trước khi xong cả 5 màn.
+- Tự lưu điểm, manh mối, lựa chọn, điều chỉnh, bước nhiệm vụ và màn đang chơi bằng localStorage. Tiến trình màn 1 từ bản cũ được tái sử dụng; không bắt buộc chơi lại.
+- Nếu lưu trữ bị chặn, game thông báo và vẫn chơi được trong phiên. Chế độ riêng tư, xóa dữ liệu hoặc chuyển trình duyệt/địa chỉ có thể làm mất lượt. Dùng cùng trình duyệt và địa chỉ để tiếp tục.
 
 ## An toàn và quyền riêng tư
 
-Không có ô nhập thông tin cá nhân, không có API, backend, theo dõi hay tài nguyên từ bên thứ ba. Không có dữ liệu nào được gửi đi. Đường dẫn dùng đuôi `.invalid` (dành cho mô phỏng), được hiển thị dưới dạng văn bản không thể nhấp. Tiến trình được lưu trên thiết bị. Khi chơi thật ngoài đời, học sinh nên tìm người lớn đáng tin hỗ trợ nếu bị đe dọa hoặc đã lỡ chia sẻ thông tin.
+Không có ô nhập thông tin cá nhân thật, API, backend, theo dõi hoặc tài nguyên từ bên thứ ba. Lựa chọn và điểm chỉ lưu trên trình duyệt. Đường dẫn nguy hiểm được mô phỏng bằng văn bản `.invalid`, không thể nhấp. Lưu bằng chứng, chặn và báo cáo trong màn 5 chỉ thay đổi trạng thái game, không tác động tài khoản hoặc nền tảng bên ngoài.
 
-## Xuất bản miễn phí bằng GitHub Pages
+Trình tự màn 5 áp dụng khi Minh đã ở nơi an toàn cùng người lớn. Ngoài đời, nếu có nguy hiểm tức thời, ưu tiên đến nơi an toàn và nhờ trợ giúp ngay, không cần làm xong một trình tự. Không đổ lỗi cho người bị thao túng hoặc người đã lỡ chia sẻ thông tin.
 
-Sau khi mã nguồn đã có trên nhánh `main` của GitHub:
+## Xuất bản bằng GitHub Pages
 
-1. Mở repository → **Settings** → ở cột trái chọn **Pages**.
-2. Trong **Build and deployment**, chọn **Source: Deploy from a branch**.
-3. Chọn nhánh **main**, thư mục **/ (root)** → nhấp **Save**.
-4. Đợi GitHub hoàn tất triển khai. Tại trang **Pages**, nhấp **Visit site** khi nút xuất hiện.
-5. Mở địa chỉ trang đó bằng trình duyệt để chơi game.
+1. Mở repository → **Settings → Pages**.
+2. Chọn **Source: Deploy from a branch**.
+3. Chọn **main**, **/ (root)** → **Save**.
+4. Đợi triển khai xong → **Visit site**. Những lần cập nhật nhánh `main` sau đó được triển khai theo cấu hình Pages hiện có.
 
-Nếu chưa tải mã lên: ở trang repository chọn **Add file → Upload files**, kéo thả `index.html`, `style.css`, `game.js`, `README.md` và cả thư mục `assets` vào vùng tải lên, rồi nhấp **Commit changes**. Nếu repository còn trống, GitHub có thể hiển thị đường dẫn **uploading an existing file** thay cho **Add file**. Không tải lên `.git`.
+Nếu tải mã thủ công lên GitHub, cần đưa đủ `index.html`, `style.css`, **`game.js`, `chapters.js`, `journey.js`** và cả thư mục `assets`. Không tải thư mục `.git`. Chưa tích hợp mã QR trong game; có thể chia sẻ địa chỉ trực tuyến trực tiếp.
 
 ## Phát triển và kiểm tra
 
-HTML/CSS/JavaScript thuần, không cần bước build và không có dependency sản xuất. Tài nguyên SVG do dự án tự tạo.
+Không cần bước build hay dependency sản xuất. Tài nguyên SVG do dự án tự tạo.
 
-Có thể dùng máy chủ tĩnh thay cho mở tệp: từ thư mục dự án chạy `python3 -m http.server 8080 --bind 0.0.0.0` (Windows dùng `py -m http.server 8080`). Sau đó mở trang ở cổng 8080 trên máy của bạn.
+Chạy máy chủ tĩnh từ thư mục dự án: `python3 -m http.server 8080 --bind 0.0.0.0` (Windows: `py -m http.server 8080`).
 
-Kiểm tra thủ công: khám phá cả bảy đồ vật; thử các lựa chọn hội thoại; thu thập đủ ba manh mối; thử chọn sai rồi sửa ở câu đố; hoàn thành màn; tải lại trang để kiểm tra lưu tiến trình; bật/tắt âm thanh; hủy và xác nhận chơi lại. Chơi trên màn hình hẹp để kiểm tra bố cục cảm ứng.
-
-Chi tiết kiểm tra tự động trong `VALIDATION.md`.
+Kiểm tra tự động bằng Playwright/Chromium: `node tests/smoke.cjs` kiểm tra màn 1; `node tests/journey.cjs` kiểm tra hành trình 1–5. Chi tiết, kết quả và giới hạn kiểm tra trong [VALIDATION.md](VALIDATION.md).
