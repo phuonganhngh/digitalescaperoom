@@ -29,6 +29,20 @@
 - Thao tác chạm ở kích thước 820 × 1180; kiểm tra không tràn ngang tại bề rộng 390, 820, 1024.
 - Không có lỗi JavaScript, lỗi tải tài nguyên hoặc yêu cầu tới nguồn bên ngoài trong các lượt theo dõi.
 
+## Hướng dẫn người mới — `tests/guide.cjs`
+
+- Tự mở hướng dẫn lần đầu, đủ ba bước, có phần mở rộng giải thích cách chơi mỗi màn và ý nghĩa các nút.
+- Nút Bắt đầu chơi mở tin nhắn; việc đọc hướng dẫn không tự chọn câu trả lời, lưu manh mối hoặc cộng điểm.
+- Dùng các nút dẫn đường đi hết màn 1 và màn 2; kiểm tra đúng vị trí và manh mối còn thiếu được làm nổi bật.
+- Sau lựa chọn, chuyển điểm tập trung tới lời giải thích mới trong hội thoại.
+- Từ màn 2, dẫn đến cả hai tình huống, ba manh mối, lời khuyên và nhiệm vụ cuối màn; thao tác chấm điểm không đổi.
+- Xem lại hoặc đóng hướng dẫn không sửa lượt chơi. Ghi nhớ đã đóng hướng dẫn, không tự hiện lại mỗi lần tải trang.
+- Chơi lại vẫn có bước xác nhận riêng, không chèn nút dẫn đường gây nhầm vào cửa sổ xác nhận xóa.
+- Thử chạm và xem lại hướng dẫn trên màn hình hẹp, không tràn ngang; kiểm tra không có lỗi JavaScript hoặc tài nguyên.
+- Hai bộ kiểm tra màn 1 và toàn hành trình vẫn chạy, bao gồm trường hợp trình duyệt chặn lưu trữ.
+
+Các kiểm tra này xác nhận chức năng chỉ dẫn hoạt động. Chưa thực hiện nghiên cứu trải nghiệm với nhóm người từ 30 tuổi trở lên; cần quan sát người dùng thật để đánh giá mức độ dễ hiểu trong thực tế.
+
 ## Giới hạn
 
 - Các kiểm tra dùng Chromium. Mô phỏng kích thước và thao tác cảm ứng không thay thế kiểm tra trên các trình duyệt hoặc thiết bị thật khác.
@@ -42,7 +56,7 @@
 Cần Node.js, gói `playwright` và Chromium; không cần các công cụ này để chơi game.
 
 1. Tại thư mục dự án: `python3 -m http.server 8080 --bind 0.0.0.0`.
-2. Trong terminal khác: `node tests/smoke.cjs` và `node tests/journey.cjs`.
+2. Trong terminal khác: `node tests/smoke.cjs`, `node tests/journey.cjs` và `node tests/guide.cjs`.
 3. Có thể đặt `BASE_URL`, `BROWSER_EXECUTABLE`, `ARTIFACT_DIR` để chọn máy chủ, trình duyệt và thư mục ảnh.
 
 Các script ghi ảnh chụp ra ngoài repository theo mặc định, không sửa mã nguồn hoặc cài dependency vào game.

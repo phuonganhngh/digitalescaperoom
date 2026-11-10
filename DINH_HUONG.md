@@ -42,7 +42,7 @@ Các dấu hiệu như thúc giục, giữ bí mật và xin thông tin có th�
 1. **Nhập vai:** Truy cập trò chơi, đọc bối cảnh và bắt đầu với nhân vật giả định.
 2. **Khám phá:** Quan sát không gian, tương tác với vật thể, đọc tin nhắn và thu thập thông tin.
 3. **Ra quyết định:** Lựa chọn cách ứng xử và theo dõi phản hồi, tình tiết phát sinh.
-4. **Điều chỉnh:** Phân tích phản hồi, xem xét hệ quả và áp dụng cách ứng phó an toàn hơn khi có cơ hội tiếp theo. Trong màn 1, lựa chọn hội thoại được giữ trong mỗi lượt; người chơi có thể đổi cách ứng phó ở bước sau hoặc chơi lại. Màn 2–5 cho phép chọn “Điều chỉnh” ngay sau phản hồi thiếu an toàn. Điểm lần đầu được giữ, còn việc điều chỉnh được ghi nhận riêng. Nhiệm vụ cuối màn cho phép thử lại.
+4. **Điều chỉnh:** Phân tích phản hồi, xem xét hệ quả và áp dụng cách ứng phó an toàn hơn khi có cơ hội tiếp theo. Trong màn 1, lựa chọn hội thoại được giữ trong mỗi lượt; người chơi có thể đổi cách ứng phó ở bước sau hoặc chơi lại. Màn 2–5 cho phép chọn “Thử cách xử lý an toàn hơn” ngay sau phản hồi thiếu an toàn. Điểm lần đầu được giữ, còn việc điều chỉnh được ghi nhận riêng. Nhiệm vụ cuối màn cho phép thử lại.
 5. **Thoát hiểm:** Hoàn thành nhiệm vụ, lựa chọn cách bảo vệ bản thân và tìm nguồn hỗ trợ phù hợp.
 6. **Tổng kết:** Xem điểm, bài học và các quyết định cụ thể cần luyện thêm trong báo cáo hành trình.
 
@@ -64,7 +64,8 @@ Các dấu hiệu như thúc giục, giữ bí mật và xin thông tin có th�
 - Nhiệm vụ cuối màn: chọn nhiều dấu hiệu thao túng, phân loại bí mật, lắp ranh giới và thực hành lưu bằng chứng/chặn/báo cáo với nguồn hỗ trợ.
 - Điểm từng màn và báo cáo toàn hành trình; ghi nhận lựa chọn, điều chỉnh và những bước đã cần thử lại.
 - Tự lưu, tiếp tục từ màn đang chơi, dùng lại tiến trình màn 1 cũ; bản đồ mở khóa tuần tự, xem lại màn và chơi lại toàn bộ với xác nhận.
-- Gợi ý, túi manh mối, tiến trình, bật/tắt âm thanh.
+- Hướng dẫn khi mở lần đầu, nút “Cách chơi” để xem lại và ô “Bước tiếp theo” dẫn tới thao tác còn thiếu. Người chưa quen chơi game, kể cả người lớn tham gia trải nghiệm, không cần biết cách điều khiển nhân vật.
+- Gợi ý, túi manh mối, tiến trình, bật/tắt âm thanh. Phần hướng dẫn xưng “bạn”; đối thoại giữa các nhân vật vẫn theo vai. Chữ và nút thao tác chính được tăng kích thước.
 
 **Giới hạn:**
 

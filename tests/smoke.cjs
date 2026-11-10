@@ -1,4 +1,5 @@
 const { chromium } = require('playwright');
+const dismissGuide = async p => { if(await p.locator('[data-action="guide-start"]').count()) await p.locator('#close-modal').click(); };
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -8,7 +9,7 @@ fs.mkdirSync(artifacts,{recursive:true});
 (async()=>{
  const browser=await chromium.launch({executablePath:process.env.BROWSER_EXECUTABLE || '/usr/bin/chromium',headless:true,args:['--no-sandbox']});
  const page=await browser.newPage({viewport:{width:1440,height:1050}});const errors=[],badResponses=[],external=[];page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)badResponses.push(r.url());});page.on('request',r=>{if(!r.url().startsWith(base))external.push(r.url());});
- await page.goto(base);
+ await page.goto(base);await dismissGuide(page);
  await page.screenshot({path:path.join(artifacts,'desktop.png'),fullPage:true});
  const action=(a,id)=>page.locator(`[data-action="${a}"]${id!==undefined?`[data-id="${id}"]`:''}`).click();
  const close=()=>page.locator('#close-modal').click();
@@ -26,9 +27,9 @@ fs.mkdirSync(artifacts,{recursive:true});
  await page.locator('#restart').click();await action('confirm-restart');await page.locator('#sound').click();assert.equal(await page.locator('#sound').getAttribute('aria-pressed'),'true');await page.locator('#sound').click();assert.equal(await page.locator('#sound').getAttribute('aria-pressed'),'false');
  await page.locator('#room').focus();const before=await page.locator('#minh').evaluate(e=>parseFloat(e.style.left));await page.keyboard.press('ArrowRight');const after=await page.locator('#minh').evaluate(e=>parseFloat(e.style.left));assert(after>before);
  await page.locator('#open-phone').click();await action('reply','curious');await action('data-reply','ask');assert.equal(await page.locator('#score').innerText(),'15');await close();
- const ipad=await browser.newContext({viewport:{width:820,height:1180},isMobile:true,hasTouch:true,deviceScaleFactor:1});const tab=await ipad.newPage();await tab.goto(base);assert(await tab.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await tab.locator('#open-phone').tap();await tab.locator('[data-action="reply"][data-id="safe"]').tap();await tab.locator('[data-action="phone-tab"][data-id="profile"]').tap();await tab.screenshot({path:path.join(artifacts,'ipad.png'),fullPage:true});await tab.locator('#close-modal').tap();
+ const ipad=await browser.newContext({viewport:{width:820,height:1180},isMobile:true,hasTouch:true,deviceScaleFactor:1});const tab=await ipad.newPage();await tab.goto(base);await dismissGuide(tab);assert(await tab.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await tab.locator('#open-phone').tap();await tab.locator('[data-action="reply"][data-id="safe"]').tap();await tab.locator('[data-action="phone-tab"][data-id="profile"]').tap();await tab.screenshot({path:path.join(artifacts,'ipad.png'),fullPage:true});await tab.locator('#close-modal').tap();
  await tab.setViewportSize({width:390,height:844});assert(await tab.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await tab.screenshot({path:path.join(artifacts,'mobile.png'),fullPage:true});
- const offline=await browser.newPage();await offline.goto(base);await offline.context().setOffline(true);await offline.locator('#open-phone').click();assert.match(await offline.locator('#modal-body').innerText(),/5.000/);await offline.context().setOffline(false);
- const blocked=await browser.newPage();await blocked.addInitScript(()=>{Object.defineProperty(window,'localStorage',{get(){throw new Error('Storage disabled')}})});await blocked.goto(base);assert.match(await blocked.locator('#save-status').innerText(),/Không thể tự lưu/);await blocked.locator('#open-phone').click();await blocked.locator('[data-action="reply"][data-id="safe"]').click();assert.equal(await blocked.locator('#score').innerText(),'15');
+ const offline=await browser.newPage();await offline.goto(base);await dismissGuide(offline);await offline.context().setOffline(true);await offline.locator('#open-phone').click();assert.match(await offline.locator('#modal-body').innerText(),/5.000/);await offline.context().setOffline(false);
+ const blocked=await browser.newPage();await blocked.addInitScript(()=>{Object.defineProperty(window,'localStorage',{get(){throw new Error('Storage disabled')}})});await blocked.goto(base);await dismissGuide(blocked);assert.match(await blocked.locator('#save-status').innerText(),/Không thể tự lưu/);await blocked.locator('#open-phone').click();await blocked.locator('[data-action="reply"][data-id="safe"]').click();assert.equal(await blocked.locator('#score').innerText(),'15');
  assert.deepEqual(errors,[]);assert.deepEqual(badResponses,[]);assert.deepEqual(external,[]);console.log('PASS: desktop full perfect path; risk path; all dialogue choices; wrong answer retry & save; unique rewards; reload; reset/cancel; sound; keyboard; objects; iPad touch; mobile layout; offline interaction; unavailable storage; no JS errors.');await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});

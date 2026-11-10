@@ -1,4 +1,5 @@
 const { chromium } = require('playwright');
+const dismissGuide = async p => { if(await p.locator('[data-action="guide-start"]').count()) await p.locator('#close-modal').click(); };
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const base=process.env.BASE_URL||'http://127.0.0.1:8080';
@@ -7,7 +8,7 @@ const artifacts=process.env.ARTIFACT_DIR||'/tmp/escape-tests';fs.mkdirSync(artif
  const browser=await chromium.launch({executablePath:process.env.BROWSER_EXECUTABLE||'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
  const failures=[];let originalSave;
  const watch=p=>{p.on('pageerror',e=>failures.push(e.message));p.on('response',r=>{if(r.status()>=400)failures.push(r.status()+' '+r.url());});p.on('request',r=>{if(!r.url().startsWith(base))failures.push('External: '+r.url());});};
- const page=await browser.newPage({viewport:{width:1440,height:1050}});watch(page);await page.goto(base);
+ const page=await browser.newPage({viewport:{width:1440,height:1050}});watch(page);await page.goto(base);await dismissGuide(page);
  const click=(p,a,id)=>p.locator(`[data-action="${a}"]${id===undefined?'':`[data-id="${id}"]`}`).click();
  const close=p=>p.locator('#close-modal').click();
  await page.locator('[data-stage="5"]').click();assert.match(await page.locator('#modal-title').innerText(),/chưa mở/);await close(page);
@@ -47,12 +48,12 @@ const artifacts=process.env.ARTIFACT_DIR||'/tmp/escape-tests';fs.mkdirSync(artif
  for(const choice of [1,2]){
   const p=await browser.newPage();watch(p);
   await p.addInitScript(saved=>{if(!localStorage.getItem('seeded')){localStorage.setItem('thoat-hiem-so.level1.v1',saved);localStorage.setItem('seeded','yes');}},originalSave);
-  await p.goto(base);assert.equal(await p.locator('#score').innerText(),'100');await p.locator('[data-stage="2"]').click();
+  await p.goto(base);await dismissGuide(p);assert.equal(await p.locator('#score').innerText(),'100');await p.locator('[data-stage="2"]').click();
   for(let n=2;n<=5;n++)await finishChapter(p,n,choice,true,false);
   assert.match(await p.locator('#modal-body').innerText(),/Đã điều chỉnh sau phản hồi/);assert.match(await p.locator('#modal-body').innerText(),/Đã luyện lại bước/);await p.close();
  }
- const touch=await browser.newContext({viewport:{width:820,height:1180},hasTouch:true,isMobile:true});const t=await touch.newPage();watch(t);await t.addInitScript(saved=>localStorage.setItem('thoat-hiem-so.level1.v1',saved),originalSave);await t.goto(base);await t.locator('[data-stage="2"]').tap();await t.locator('#open-phone').tap();await t.locator('[data-action="jc-choice"][data-id="0:0"]').tap();await t.locator('#close-modal').tap();await t.screenshot({path:`${artifacts}/journey-touch.png`,fullPage:true});
+ const touch=await browser.newContext({viewport:{width:820,height:1180},hasTouch:true,isMobile:true});const t=await touch.newPage();watch(t);await t.addInitScript(saved=>localStorage.setItem('thoat-hiem-so.level1.v1',saved),originalSave);await t.goto(base);await dismissGuide(t);await t.locator('[data-stage="2"]').tap();await t.locator('#open-phone').tap();await t.locator('[data-action="jc-choice"][data-id="0:0"]').tap();await t.locator('#close-modal').tap();await t.screenshot({path:`${artifacts}/journey-touch.png`,fullPage:true});
  for(const width of [390,820,1024]){await t.setViewportSize({width,height:1000});assert(await t.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));}
- const corrupt=await browser.newPage();watch(corrupt);await corrupt.addInitScript(()=>localStorage.setItem('thoat-hiem-so.journey.v2','{"version":2,"active":5,"levels":{}}'));await corrupt.goto(base);assert.match(await corrupt.locator('h1').innerText(),/Lời mời/);
+ const corrupt=await browser.newPage();watch(corrupt);await corrupt.addInitScript(()=>localStorage.setItem('thoat-hiem-so.journey.v2','{"version":2,"active":5,"levels":{}}'));await corrupt.goto(base);await dismissGuide(corrupt);assert.match(await corrupt.locator('h1').innerText(),/Lời mời/);
  assert.deepEqual(failures,[]);console.log('PASS: actual UI 1→5, 100/100 report, every chapter dialogue option, corrective choices, all puzzle types, wrong/retry scoring, legacy save migration, locked stages, reload in chapter/puzzle/report, unique clue points, stage navigation, full reset/cancel, touch and narrow layouts; no runtime/network errors.');await browser.close();
 })().catch(e=>{console.error(e);process.exit(1);});

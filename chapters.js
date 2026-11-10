@@ -3,83 +3,83 @@
 window.ESCAPE_CHAPTERS = {
   2: {
     title:'Chiếc bẫy lòng tin', room:'GÓC HỌC TẬP', time:'07:15', mood:'Sáng hôm sau · Cùng Lan xem lại', mission:'Sự quan tâm có điều kiện?',
-    intro:'Sáng hôm sau, Minh cùng Lan xem lại những tin nhắn Shadow_88 đã gửi. Không cần trả lời tài khoản để tiếp tục điều tra.',
+    intro:'Sáng hôm sau, Minh cùng Lan xem lại những tin nhắn Shadow_88 đã gửi. Cả hai đọc lại cuộc trò chuyện để hiểu chuyện gì đang xảy ra.',
     clues:[
-      ['Quan tâm quá nhanh','“Chỉ anh mới hiểu em. Kể anh nghe chuyện em buồn nhất nhé.”','Thân thiết rất nhanh rồi yêu cầu chuyện riêng là dấu hiệu cần thận trọng. Cùng sở thích không xác minh được danh tính.'],
-      ['Món quà thành món nợ','“Anh đã dành quà cho em, em phải tin anh chứ!”','Quà tặng không tạo nghĩa vụ chia sẻ bí mật hay làm theo yêu cầu. Gây cảm giác mắc nợ là một cách thao túng.'],
-      ['Giới hạn bị thử thách','“Nếu thật sự coi anh là bạn, hãy gửi lịch học của em.”','Một người tôn trọng Minh sẽ chấp nhận lời từ chối. Lịch học, nơi thường đến và chuyện riêng có thể bị dùng để khai thác.']
+      ['Quan tâm quá nhanh','“Chỉ anh mới hiểu em. Kể anh nghe chuyện em buồn nhất nhé.”','Chưa quen bao lâu mà đã hỏi sâu vào chuyện riêng là điều đáng lưu ý. Thích cùng một trò chơi không có nghĩa là mình đã biết rõ người bên kia.'],
+      ['Món quà thành món nợ','“Anh đã dành quà cho em, em phải tin anh chứ!”','Được tặng quà không có nghĩa là phải kể chuyện riêng hay làm theo mọi yêu cầu. Ở đây, Shadow_88 đang khiến Minh thấy mình mắc nợ.'],
+      ['Lời từ chối không được tôn trọng','“Nếu thật sự coi anh là bạn, hãy gửi lịch học của em.”','Người tôn trọng Minh sẽ không ép cậu chứng minh tình bạn bằng chuyện riêng. Lịch học và nơi thường đến cũng là những thông tin cần giữ kín.']
     ],
     decisions:[
-      {message:'“Anh cũng mê game giống em. Kể anh chuyện riêng nhé, anh hiểu em hơn các bạn ở lớp.”',question:'Khi xem lại tin nhắn này, Minh nên chọn cách ứng phó nào?',choices:[
-        ['Giữ chuyện riêng và kiểm chứng qua người đáng tin.',15,'Em đã tách cảm giác thân thiết khỏi bằng chứng về sự tin cậy.','Shadow_88 đổi giọng trong tin nhắn tiếp theo: “Em không tin anh sao?”'],
-        ['Hỏi người đó có thật sự cùng sở thích không.',5,'Hỏi thêm chưa đủ để kiểm chứng: sở thích có thể được đoán từ bài đăng công khai.','Đối phương kể thêm vài tên game rồi tiếp tục hỏi chuyện riêng.'],
-        ['Kể hết chuyện buồn để chứng minh mình tin.',0,'Mô phỏng không gửi dữ liệu. Chuyện riêng có thể bị dùng để gây áp lực. Em vẫn có thể đổi cách ứng phó.','Trong kịch bản giả định, đối phương dùng chuyện buồn để nói rằng chỉ mình họ hiểu Minh.']
+      {message:'“Anh cũng mê game giống em. Kể anh chuyện riêng nhé, anh hiểu em hơn các bạn ở lớp.”',question:'Nếu là Minh, bạn sẽ trả lời thế nào?',choices:[
+        ['Mình chưa muốn kể chuyện riêng. Mình sẽ hỏi người mình tin tưởng trước.',15,'Dù nói chuyện có vẻ hợp nhau, Minh vẫn cần thời gian để hiểu người kia. Giữ lại chuyện riêng lúc này là lựa chọn thận trọng.','Shadow_88 đổi giọng trong tin nhắn tiếp theo: “Em không tin anh sao?”'],
+        ['Hỏi người đó có thật sự cùng sở thích không.',5,'Hỏi thêm có thể giúp hiểu chuyện, nhưng chưa đủ để biết người kia có đáng tin không. Họ có thể đoán sở thích của Minh từ bài đăng công khai.','Đối phương kể thêm vài tên game rồi tiếp tục hỏi chuyện riêng.'],
+        ['Kể hết chuyện buồn để chứng minh mình tin.',0,'Muốn có người lắng nghe là điều dễ hiểu. Tuy vậy, kể chuyện riêng quá sớm có thể khiến Minh bị gây áp lực về sau. Trong game, không có thông tin thật nào được gửi đi.','Nếu Minh kể hết, Shadow_88 có thể dựa vào chuyện đó để khẳng định rằng chỉ mình họ mới hiểu cậu.']
       ]},
       {message:'“Anh đã giúp em rồi. Gửi lịch học để anh biết lúc nào có thể nói chuyện nhé.”',question:'Lời hứa tặng quà có khiến Minh phải cung cấp lịch học không?',choices:[
-        ['Không. Mình không chia sẻ lịch học hay nơi thường đến.',15,'Em có quyền từ chối mà không mắc nợ vì món quà.','Trong hồ sơ, yêu cầu tiếp theo của Shadow_88 là giữ kín mối quan hệ.'],
-        ['Chỉ nói giờ tan học, không nói tên trường.',5,'Giờ tan học vẫn là thông tin về sinh hoạt. Không cần cung cấp để nhận quà hoặc giữ tình bạn.','Đối phương tiếp tục hỏi nơi Minh thường chờ sau giờ học.'],
-        ['Đồng ý vì đã được hứa tặng quà.',0,'Không thông tin thật nào được gửi. Lòng biết ơn không bắt buộc em làm điều khiến mình thiếu an toàn.','Kịch bản giả định cho thấy một nhượng bộ dẫn đến yêu cầu riêng tư hơn.']
+        ['Không. Mình không chia sẻ lịch học hay nơi thường đến.',15,'Minh có quyền nói không. Một món quà không khiến cậu phải đánh đổi sự riêng tư.','Trong hồ sơ, yêu cầu tiếp theo của Shadow_88 là giữ kín mối quan hệ.'],
+        ['Chỉ nói giờ tan học, không nói tên trường.',5,'Giờ tan học cũng cho biết thói quen của Minh. Cậu không cần tiết lộ điều đó để nhận quà hay giữ một tình bạn.','Đối phương tiếp tục hỏi nơi Minh thường chờ sau giờ học.'],
+        ['Đồng ý vì đã được hứa tặng quà.',0,'Cảm ơn một món quà không đồng nghĩa với việc phải làm theo mọi yêu cầu. Không có thông tin thật nào được gửi trong lựa chọn này.','Khi thấy Minh đồng ý, Shadow_88 có thể tiếp tục hỏi sâu hơn về cuộc sống của cậu.']
       ]}
     ],
     support:'Lan: “Bạn tốt không dùng quà để buộc cậu làm theo. Mình cùng cậu nói với cô nếu cậu thấy áp lực.”',
-    puzzle:{kind:'multi',title:'Chọn hai dấu hiệu thao túng',prompt:'Đọc cả ngữ cảnh. Hai câu nào dùng sự thân thiết để gây áp lực?',options:['“Anh đã cho quà, em phải gửi lịch học.”','“Cậu không muốn kể cũng được, mình tôn trọng.”','“Chỉ anh hiểu em. Đừng nghe bạn bè nữa.”','“Cậu có thể hỏi người lớn trước khi quyết định.”'],correct:[0,2],explain:'Mắc nợ vì quà và tự nhận là người duy nhất thấu hiểu để tách em khỏi người khác là dấu hiệu thao túng. Tôn trọng lời từ chối và khuyến khích tìm trợ giúp là hành vi lành mạnh.'},
-    lesson:'Sự tin cậy cần thời gian, bằng chứng và tôn trọng ranh giới; không được đánh đổi bằng quà hoặc lời khen.',next:'Từ lời quan tâm, Shadow_88 chuyển sang yêu cầu giữ bí mật. Minh và Lan mang hồ sơ tới góc thư viện để phân tích.'
+    puzzle:{kind:'multi',title:'Chọn hai dấu hiệu thao túng',prompt:'Đọc cả ngữ cảnh. Hai câu nào dùng sự thân thiết để gây áp lực?',options:['“Anh đã cho quà, em phải gửi lịch học.”','“Cậu không muốn kể cũng được, mình tôn trọng.”','“Chỉ anh hiểu em. Đừng nghe bạn bè nữa.”','“Cậu có thể hỏi người lớn trước khi quyết định.”'],correct:[0,2],explain:'Mắc nợ vì quà và nghe lời “chỉ mình anh hiểu em” có thể khiến Minh khó nói không, dần xa những người thân quen. Người tôn trọng Minh sẽ chấp nhận lời từ chối và không ngăn cậu hỏi người khác.'},
+    lesson:'Một tình bạn đáng tin cần thời gian và sự tôn trọng. Quà tặng hay lời khen không khiến mình phải kể chuyện riêng.',next:'Từ lời quan tâm, Shadow_88 chuyển sang yêu cầu giữ bí mật. Minh và Lan mang hồ sơ tới góc thư viện để phân tích.'
   },
   3: {
-    title:'Bí mật nguy hiểm',room:'GÓC THƯ VIỆN',time:'09:40',mood:'Giờ ra chơi · Không giữ một mình',mission:'Bí mật hay sự cô lập?',
-    intro:'Ở góc thư viện, Lan giúp Minh xem các tin nhắn còn lưu. Những lời “đừng kể ai” đang cố tách Minh khỏi nguồn hỗ trợ.',
+    title:'Bí mật nguy hiểm',room:'GÓC THƯ VIỆN',time:'09:40',mood:'Giờ ra chơi · Không giữ một mình',mission:'Vì sao phải giấu mọi người?',
+    intro:'Ở góc thư viện, Lan giúp Minh xem các tin nhắn còn lưu. Càng đọc, cả hai càng thấy những lời “đừng kể ai” đang khiến Minh xa những người có thể giúp cậu.',
     clues:[
-      ['Yêu cầu im lặng','“Đừng kể chuyện này với bố mẹ hay cô giáo, họ sẽ phá tình bạn của mình.”','Bí mật khiến em lo sợ hoặc ngăn em tìm hỗ trợ không phải điều em có nghĩa vụ giữ.'],
-      ['Đổ lỗi để làm sợ','“Nếu có chuyện gì xảy ra thì là tại em đã kể với người khác.”','Đối phương chịu trách nhiệm về hành vi đe dọa của họ. Tìm trợ giúp không khiến em có lỗi.'],
-      ['Cắt đứt người hỗ trợ','“Lan ghen tị thôi. Bỏ nhóm lớp đi, chỉ nói chuyện với anh.”','Yêu cầu xa lánh bạn bè, gia đình hoặc giáo viên là cách cô lập để dễ kiểm soát.']
+      ['Yêu cầu im lặng','“Đừng kể chuyện này với bố mẹ hay cô giáo, họ sẽ phá tình bạn của mình.”','Nếu một bí mật khiến Minh sợ hãi hoặc không dám nhờ giúp đỡ, cậu có quyền kể với người mình tin tưởng.'],
+      ['Đổ lỗi để làm sợ','“Nếu có chuyện gì xảy ra thì là tại em đã kể với người khác.”','Người đưa ra lời đe dọa phải chịu trách nhiệm về lời nói và hành động của họ. Minh không có lỗi khi kể lại để tìm sự giúp đỡ.'],
+      ['Cắt đứt người hỗ trợ','“Lan ghen tị thôi. Bỏ nhóm lớp đi, chỉ nói chuyện với anh.”','Khi Minh ít nói chuyện với bạn bè, gia đình và thầy cô hơn, cậu cũng khó hỏi ý kiến khi thấy bất an. Đó là điều Shadow_88 đang muốn.']
     ],
     decisions:[
       {message:'“Đây là bí mật giữa hai ta. Kể ra thì anh không còn quan tâm em nữa.”',question:'Minh có cần giữ lời hứa im lặng này không?',choices:[
-        ['Không giữ bí mật gây lo sợ; kể với người lớn đáng tin.',15,'Em có thể phá bỏ lời hứa giữ bí mật để bảo vệ sự an toàn.','Lan cùng Minh chuẩn bị nói chuyện với cô giáo, không tiếp tục nhắn cho Shadow_88.'],
-        ['Chỉ kể với Lan rồi nhờ Lan cũng giấu người lớn.',5,'Có bạn đồng hành là tốt, nhưng hai học sinh không nên tự gánh tình huống đe dọa.','Lan lo lắng và đề nghị cùng tìm người lớn thay vì giữ kín.'],
-        ['Giữ kín vì sợ mất sự quan tâm.',0,'Mô phỏng giúp em nhận ra áp lực. Sự quan tâm có điều kiện không buộc em im lặng.','Trong giả định, việc giữ kín khiến Minh phải tự chịu lo lắng. Em có thể chọn lại cách ứng phó.']
+        ['Mình thấy lo. Mình sẽ kể với người lớn mà mình tin tưởng.',15,'Lời hứa giữ bí mật không quan trọng hơn sự an toàn của Minh. Cậu có thể nói ra để được giúp đỡ.','Lan cùng Minh chuẩn bị nói chuyện với cô giáo, không tiếp tục nhắn cho Shadow_88.'],
+        ['Chỉ kể với Lan rồi nhờ Lan cũng giấu người lớn.',5,'Có Lan bên cạnh sẽ giúp Minh bớt lo, nhưng cả hai không cần tự giải quyết một chuyện có lời đe dọa. Nhờ thêm người lớn là bước cần thiết.','Lan lo lắng và đề nghị cùng tìm người lớn thay vì giữ kín.'],
+        ['Giữ kín vì sợ mất sự quan tâm.',0,'Sợ mất đi một người quan tâm mình là cảm giác dễ hiểu. Nhưng sự quan tâm không nên đi kèm yêu cầu im lặng khi mình đang lo sợ.','Nếu tiếp tục giữ kín, Minh sẽ phải lo lắng một mình. Bạn có thể giúp cậu thử một cách xử lý khác.']
       ]},
-      {message:'“Lan đang hại em đấy. Rời nhóm lớp và đừng gặp cô giáo.”',question:'Minh bảo vệ mạng lưới hỗ trợ bằng cách nào?',choices:[
-        ['Giữ liên lạc với Lan và tìm giáo viên hoặc người chăm sóc.',15,'Không để người lạ quyết định ai được hỗ trợ em.','Minh và Lan thống nhất tìm cô giáo ở phòng tư vấn.'],
-        ['Không rời nhóm nhưng tự xử lý, không nói với ai.',5,'Giữ bạn bè là một bước tốt. Khi có ép buộc, hãy tìm thêm hỗ trợ từ người lớn.','Lan nhận ra Minh vẫn căng thẳng và nhắc rằng cô giáo có thể giúp.'],
-        ['Rời nhóm để tránh làm Shadow_88 giận.',0,'Giận dỗi không cho người khác quyền cắt đứt các mối quan hệ của em.','Trong giả định, Minh ít người để hỏi ý kiến hơn. Mạng lưới hỗ trợ vẫn có thể được nối lại.']
+      {message:'“Lan đang hại em đấy. Rời nhóm lớp và đừng gặp cô giáo.”',question:'Minh nên làm gì để không mất liên lạc với những người có thể giúp mình?',choices:[
+        ['Giữ liên lạc với Lan và tìm giáo viên hoặc người chăm sóc.',15,'Minh có quyền giữ những mối quan hệ khiến cậu thấy được lắng nghe. Người lạ không thể quyết định cậu được nói chuyện với ai.','Minh và Lan thống nhất tìm cô giáo ở phòng tư vấn.'],
+        ['Không rời nhóm nhưng tự xử lý, không nói với ai.',5,'Không rời nhóm là một bước tốt. Nhưng khi vẫn bị ép buộc, Minh nên nói thêm với một người lớn mà cậu tin tưởng.','Lan nhận ra Minh vẫn căng thẳng và nhắc rằng cô giáo có thể giúp.'],
+        ['Rời nhóm để tránh làm Shadow_88 giận.',0,'Shadow_88 có giận cũng không có nghĩa là Minh phải xa bạn bè. Một người tôn trọng cậu sẽ không bắt cậu chọn giữa họ và mọi người.','Rời nhóm có thể khiến Minh khó chia sẻ khi cần. Dù đã rời nhóm, cậu vẫn có thể liên lạc lại với Lan và cô giáo.']
       ]}
     ],support:'Giáo viên: “Cảm ơn em đã kể. Em không có lỗi vì tìm giúp đỡ. Nếu người đầu tiên chưa giúp được, hãy tìm người lớn đáng tin khác.”',
     puzzle:{kind:'classify',title:'Phân loại lời nhắn',steps:[
       {prompt:'“Giấu món quà sinh nhật tới chiều để tạo bất ngờ, em vẫn có thể hỏi bố mẹ.”',options:['Bất ngờ có giới hạn, không cản tìm trợ giúp.','Bắt buộc là đe dọa.'],correct:0,explain:'Bất ngờ có thời hạn và không ngăn tìm hỗ trợ khác với bí mật gây sợ hãi.'},
       {prompt:'“Không được kể cô giáo, nếu không em sẽ gặp rắc rối.”',options:['Bí mật vui, nên giữ.','Bí mật có đe dọa, cần tìm hỗ trợ.'],correct:1,explain:'Dùng nỗi sợ để giữ em im lặng là dấu hiệu nguy hiểm. Em không cần chờ bằng chứng hoàn hảo mới tìm người lớn.'},
       {prompt:'Nếu người đầu tiên không lắng nghe, Minh nên làm gì?',options:['Tìm một người lớn đáng tin khác và nói rõ mình cần giúp.','Bỏ cuộc vì không ai giúp được.'],correct:0,explain:'Tiếp tục tìm nguồn hỗ trợ khác: người chăm sóc, giáo viên hoặc người phụ trách bảo vệ học sinh.'}
-    ]},lesson:'Bí mật gây sợ hãi và ngăn tìm trợ giúp có thể được chia sẻ để bảo vệ bản thân.',next:'Cô giáo cùng Minh lập kế hoạch từ chối những yêu cầu tiếp theo. Cả hai chuyển sang phòng tư vấn.'
+    ]},lesson:'Không cần giữ một bí mật khiến mình sợ hãi. Kể với người đáng tin là cách tự bảo vệ, không phải phản bội ai.',next:'Cô giáo cùng Minh lập kế hoạch từ chối những yêu cầu tiếp theo. Cả hai chuyển sang phòng tư vấn.'
   },
   4: {
     title:'Ranh giới cuối cùng',room:'PHÒNG TƯ VẤN',time:'10:00',mood:'Có người đồng hành · Có quyền từ chối',mission:'Ranh giới thuộc về em',
-    intro:'Trong phòng tư vấn, Minh cùng cô giáo diễn tập cách đáp lại yêu cầu nguy hiểm. Các lựa chọn chỉ là diễn tập, không gửi tin và không tổ chức cuộc gặp thật.',
+    intro:'Trong phòng tư vấn, Minh cùng cô giáo diễn tập cách đáp lại yêu cầu nguy hiểm. Bạn sẽ chọn cách xử lý giúp Minh; game không gửi tin nhắn hay tổ chức cuộc gặp thật.',
     clues:[
-      ['Cuộc gặp không an toàn','“Đến chỗ vắng một mình để nhận quà. Đừng mang điện thoại.”','Đòi gặp riêng, tránh người hỗ trợ và bỏ phương tiện liên lạc là các dấu hiệu nguy hiểm đi cùng nhau.'],
+      ['Cuộc gặp không an toàn','“Đến chỗ vắng một mình để nhận quà. Đừng mang điện thoại.”','Một cuộc gặp ở chỗ vắng, phải đi một mình và không được mang điện thoại sẽ khiến Minh khó nhờ giúp đỡ khi cần. Cậu không cần đi để chứng minh điều gì.'],
       ['Đe dọa bằng tin cũ','“Nếu em không làm theo, anh sẽ tung những gì em đã kể.”','Đừng trả tiền hoặc gửi thêm dữ liệu để đổi lấy im lặng. Lưu bằng chứng và nhờ người lớn hỗ trợ xử lý.'],
-      ['Quyền đổi ý','“Em đã hứa rồi thì không được từ chối.”','Đã trả lời, nhận quà hoặc đồng ý trước đó không làm mất quyền đổi ý. An toàn luôn quan trọng hơn lời hứa bị ép buộc.']
+      ['Quyền đổi ý','“Em đã hứa rồi thì không được từ chối.”','Dù từng trả lời, nhận quà hay đồng ý, Minh vẫn có quyền đổi ý. Không lời hứa nào buộc cậu làm điều khiến mình thấy nguy hiểm.']
     ],
     decisions:[
       {message:'“Chiều nay ra chỗ vắng một mình. Nếu dẫn ai theo thì mất quà.”',question:'Minh sẽ chọn phương án nào trong buổi diễn tập?',choices:[
-        ['Không đi; báo người lớn và giữ liên lạc với người hỗ trợ.',15,'Từ chối cuộc gặp bí mật và tìm hỗ trợ giúp giảm rủi ro.','Cô giáo cùng Minh lên kế hoạch ở nơi an toàn. Không có cuộc gặp nào được tổ chức.'],
-        ['Nhờ Lan đi cùng để tự kiểm tra người đó.',5,'Đi cùng bạn vẫn có thể nguy hiểm; học sinh không cần tự điều tra tài khoản đáng ngờ.','Cô giáo đề nghị cả hai dừng kế hoạch gặp và để người lớn hỗ trợ.'],
-        ['Đi một mình để giữ lời hứa.',0,'Mô phỏng dừng trước mọi hành động nguy hiểm. Em có thể đổi ý dù đã hứa.','Trong giả định, Minh sẽ thiếu hỗ trợ và liên lạc. Hãy luyện lại cách từ chối.']
+        ['Mình không đi. Mình sẽ nói với cô giáo hoặc người thân.',15,'Từ chối cuộc gặp và nói với người đáng tin giúp Minh tránh rơi vào tình huống khó tự bảo vệ.','Cô giáo cùng Minh lên kế hoạch ở nơi an toàn. Không có cuộc gặp nào được tổ chức.'],
+        ['Nhờ Lan đi cùng để tự kiểm tra người đó.',5,'Có Lan đi cùng không làm cuộc gặp này trở nên an toàn. Cả hai không cần tự tìm gặp để kiểm tra tài khoản lạ.','Cô giáo đề nghị cả hai dừng kế hoạch gặp và để người lớn hỗ trợ.'],
+        ['Đi một mình để giữ lời hứa.',0,'Giữ lời là điều đáng quý, nhưng an toàn quan trọng hơn. Minh vẫn có quyền đổi ý; không cuộc gặp nào diễn ra trong game.','Đi một mình mà không có điện thoại sẽ khiến Minh khó nhờ giúp đỡ. Bạn có thể giúp cậu thử lại cách từ chối.']
       ]},
       {message:'“Làm theo anh, nếu không anh sẽ tung tin nhắn cũ.”',question:'Trước sự đe dọa, cách xử lý nào bảo vệ Minh?',choices:[
-        ['Dừng đáp ứng, lưu lời đe dọa và nhờ người lớn hỗ trợ.',15,'Không cần đối đầu hoặc thương lượng một mình. Nếu có nguy hiểm tức thời, đến nơi an toàn và nhờ hỗ trợ khẩn cấp.','Minh và cô giáo giữ bằng chứng để xử lý, không tranh cãi với tài khoản.'],
-        ['Tranh cãi và đe dọa ngược lại.',5,'Phản ứng khi tức giận là dễ hiểu nhưng có thể làm căng thẳng tăng. Hãy dừng và tìm hỗ trợ.','Cô giáo giúp Minh tạm đặt điện thoại xuống và chuyển sang kế hoạch bảo vệ.'],
-        ['Gửi thêm thông tin để đối phương im lặng.',0,'Gửi thêm không bảo đảm hết đe dọa và có thể tạo thêm thứ để bị khai thác. Không có dữ liệu nào được gửi trong mô phỏng.','Trong giả định, đối phương đòi hỏi tiếp. Em không có lỗi và có thể dừng lại ngay.']
+        ['Không làm theo. Lưu lời đe dọa rồi nhờ người lớn giúp.',15,'Minh không phải tự tranh cãi hay thương lượng với người đang đe dọa mình. Nếu nguy hiểm đang xảy ra, cần đến nơi an toàn và nhờ giúp ngay.','Minh và cô giáo giữ bằng chứng để xử lý, không tranh cãi với tài khoản.'],
+        ['Tranh cãi và đe dọa ngược lại.',5,'Bị đe dọa thì tức giận là điều dễ hiểu. Nhưng đe dọa lại có thể khiến mọi chuyện căng thẳng hơn. Tạm dừng và nhờ giúp sẽ tốt hơn cho Minh.','Cô giáo giúp Minh tạm đặt điện thoại xuống và chuyển sang kế hoạch bảo vệ.'],
+        ['Gửi thêm thông tin để đối phương im lặng.',0,'Gửi thêm thông tin chưa chắc khiến người kia dừng lại, mà có thể cho họ thêm điều để gây sức ép. Trong game, không có dữ liệu nào được gửi đi.','Ngay cả khi Minh làm theo, đối phương vẫn có thể đòi hỏi thêm. Cậu không có lỗi vì bị đe dọa và vẫn có thể dừng lại.']
       ]}
     ],support:'Giáo viên: “Em có quyền không trả lời. Nếu cần câu từ chối, hãy ngắn gọn, rõ ràng; không phải giải thích hay thương lượng. Mình cùng lập kế hoạch bảo vệ em.”',
-    puzzle:{kind:'boundary',title:'Lắp một ranh giới rõ ràng',steps:[
-      {prompt:'Chọn câu mở đầu đặt ranh giới.',options:['Mình không đồng ý gặp riêng hoặc gửi thêm thông tin.','Mình sẽ làm nếu bạn không giận.'],correct:0,explain:'Ranh giới rõ ràng diễn tả điều em không đồng ý, không phụ thuộc việc đối phương có vui hay không.'},
-      {prompt:'Chọn hành động tiếp theo khi vẫn bị ép buộc.',options:['Tiếp tục giải thích đến khi họ đồng ý.','Dừng tương tác; không cần xin phép để rời cuộc trò chuyện.'],correct:1,explain:'Em không phải thuyết phục người gây áp lực cho phép em bảo vệ bản thân.'},
-      {prompt:'Chọn nguồn hỗ trợ cho kế hoạch của Minh.',options:['Một tài khoản lạ khác hứa xử lý giúp.','Giáo viên hoặc người chăm sóc đáng tin, cùng xem bằng chứng.'],correct:1,explain:'Chọn người lớn đáng tin và kênh chính thức, không giao dữ liệu cho người lạ tự nhận hỗ trợ.'}
-    ]},lesson:'Em có quyền từ chối, đổi ý và dừng tương tác. Lưu bằng chứng và nhờ hỗ trợ khi bị đe dọa.',next:'Ranh giới đã rõ. Minh cùng cô giáo chuyển đến trạm an toàn để thực hành xử lý tài khoản.'
+    puzzle:{kind:'boundary',title:'Nói không và bảo vệ mình',steps:[
+      {prompt:'Minh nên bắt đầu lời từ chối thế nào?',options:['Mình không đồng ý gặp riêng hoặc gửi thêm thông tin.','Mình sẽ làm nếu bạn không giận.'],correct:0,explain:'Nói rõ điều mình không đồng ý giúp Minh giữ giới hạn của bản thân. Cậu không cần chờ người kia vui vẻ mới được từ chối.'},
+      {prompt:'Chọn hành động tiếp theo khi vẫn bị ép buộc.',options:['Tiếp tục giải thích đến khi họ đồng ý.','Dừng tương tác; không cần xin phép để rời cuộc trò chuyện.'],correct:1,explain:'Minh không cần xin phép để kết thúc một cuộc trò chuyện khiến mình thấy không an toàn.'},
+      {prompt:'Minh nên nhờ ai cùng xử lý chuyện này?',options:['Một tài khoản lạ khác hứa xử lý giúp.','Giáo viên hoặc người chăm sóc đáng tin, cùng xem bằng chứng.'],correct:1,explain:'Chọn người lớn đáng tin và kênh chính thức, không giao dữ liệu cho người lạ tự nhận hỗ trợ.'}
+    ]},lesson:'Mình có thể nói không, đổi ý và dừng trò chuyện. Nếu bị đe dọa, hãy giữ lại bằng chứng và nhờ người đáng tin giúp.',next:'Ranh giới đã rõ. Minh cùng cô giáo chuyển đến trạm an toàn để thực hành xử lý tài khoản.'
   },
   5: {
-    title:'Lối thoát an toàn',room:'TRẠM AN TOÀN SỐ',time:'10:20',mood:'Cùng cô giáo · Hoàn thành kế hoạch',mission:'Biến nhận biết thành hành động',
-    intro:'Minh đã ở nơi an toàn cùng cô giáo. Trên bảng điều khiển mô phỏng, hãy lưu bằng chứng, chặn, báo cáo tài khoản và kết nối nguồn hỗ trợ.',
+    title:'Lối thoát an toàn',room:'TRẠM AN TOÀN SỐ',time:'10:20',mood:'Cùng cô giáo · Hoàn thành kế hoạch',mission:'Cùng Minh xử lý đến cùng',
+    intro:'Minh đã ở nơi an toàn cùng cô giáo. Bạn sẽ giúp cậu giữ lại bằng chứng, chặn và báo cáo tài khoản trên bảng mô phỏng, rồi thống nhất cách nhờ hỗ trợ.',
     clues:[
       ['Bằng chứng cần giữ','Hồ sơ mẫu có tên Shadow_88, thời điểm, yêu cầu cung cấp thông tin và lời đe dọa.','Lưu nội dung liên quan và bối cảnh, không phát tán công khai. Trong game, bằng chứng chỉ là dữ liệu giả lập.'],
       ['Chặn và báo cáo','Bảng chức năng có “Chặn tài khoản” và “Báo cáo hành vi đe dọa”.','Chặn giúp hạn chế liên lạc. Báo cáo giúp nền tảng xem xét; không bảo đảm tài khoản bị xử lý ngay. Giao diện thực tế có thể khác.'],
@@ -87,20 +87,20 @@ window.ESCAPE_CHAPTERS = {
     ],
     decisions:[
       {message:'Cô giáo: “Trước khi chặn tài khoản, mình muốn giữ lại gì để giải thích sự việc?”',question:'Minh sẽ xử lý bằng chứng thế nào?',choices:[
-        ['Giữ tin liên quan, tên tài khoản và thời điểm; chỉ chia sẻ với người hỗ trợ.',15,'Lưu bằng chứng có ngữ cảnh, bảo vệ riêng tư của người liên quan.','Cô giáo giúp Minh chọn những tin cần giữ mà không phát tán.'],
-        ['Chỉ nhớ trong đầu rồi xóa tất cả.',5,'Nhớ lại có thể thiếu chi tiết. Nếu an toàn và được hỗ trợ, giữ bằng chứng trước khi xóa.','Cô giáo hướng dẫn giữ lại các mẫu tin trong hồ sơ giả lập.'],
-        ['Đăng toàn bộ chuyện riêng lên nhóm công khai.',0,'Công khai có thể làm dữ liệu riêng tư lan rộng. Không bài đăng nào được tạo trong mô phỏng.','Cô giáo đề nghị chia sẻ riêng với người hỗ trợ thay vì phát tán.']
+        ['Giữ tin liên quan, tên tài khoản và thời điểm; chỉ chia sẻ với người hỗ trợ.',15,'Giữ lại nội dung, tên tài khoản và thời điểm giúp người hỗ trợ hiểu được chuyện đã xảy ra. Chỉ chia sẻ với người cần giúp mình xử lý.','Cô giáo giúp Minh chọn những tin cần giữ mà không phát tán.'],
+        ['Chỉ nhớ trong đầu rồi xóa tất cả.',5,'Chỉ nhớ trong đầu thì dễ quên mất chi tiết. Khi đang ở nơi an toàn, Minh có thể nhờ cô giáo giữ lại những tin cần thiết trước khi xóa.','Cô giáo hướng dẫn giữ lại các mẫu tin trong hồ sơ giả lập.'],
+        ['Đăng toàn bộ chuyện riêng lên nhóm công khai.',0,'Đăng công khai có thể khiến chuyện riêng của Minh lan xa hơn. Trong game, không bài đăng nào được tạo.','Cô giáo đề nghị chia sẻ riêng với người hỗ trợ thay vì phát tán.']
       ]},
-      {message:'Sau khi lưu bằng chứng, Minh cần một kế hoạch có người đồng hành.',question:'Minh sẽ chọn nguồn hỗ trợ nào?',choices:[
-        ['Nhờ cô giáo và người chăm sóc cùng xử lý, báo lại nếu tài khoản khác tiếp cận.',15,'Kế hoạch có người hỗ trợ và theo dõi tiếp giúp em không phải tự gánh tình huống.','Cô giáo thống nhất cùng Minh báo cáo và kiểm tra an toàn tài khoản.'],
-        ['Chỉ nhờ Lan giữ hộ, không cần người lớn.',5,'Lan có thể đồng hành nhưng không nên chịu trách nhiệm xử lý một mình.','Lan đề nghị cùng Minh trao đổi với cô giáo.'],
-        ['Tìm dịch vụ lạ hứa lấy lại tài khoản và gửi mật khẩu.',0,'Không đưa mật khẩu hoặc mã cho người tự nhận cứu hộ. Dùng kênh hỗ trợ chính thức cùng người lớn.','Trong mô phỏng, yêu cầu bị dừng. Minh quay lại nguồn hỗ trợ đã biết.']
+      {message:'Sau khi lưu bằng chứng, Minh cần một kế hoạch có người đồng hành.',question:'Minh nên nhờ ai cùng giúp mình lúc này?',choices:[
+        ['Nhờ cô giáo và người chăm sóc cùng xử lý, báo lại nếu tài khoản khác tiếp cận.',15,'Có cô giáo và người chăm sóc cùng theo dõi, Minh sẽ không phải tự xoay xở nếu chuyện này tiếp diễn.','Cô giáo thống nhất cùng Minh báo cáo và kiểm tra an toàn tài khoản.'],
+        ['Chỉ nhờ Lan giữ hộ, không cần người lớn.',5,'Lan có thể ở bên Minh, nhưng cả hai vẫn nên nhờ thêm người lớn khi có lời đe dọa.','Lan đề nghị cùng Minh trao đổi với cô giáo.'],
+        ['Tìm dịch vụ lạ hứa lấy lại tài khoản và gửi mật khẩu.',0,'Người tự nhận giúp lấy lại tài khoản cũng không được biết mật khẩu hay mã xác nhận. Minh nên cùng người lớn dùng mục trợ giúp chính thức của ứng dụng.','Game dừng yêu cầu này mà không gửi mật khẩu. Minh quay lại nhờ cô giáo và người chăm sóc giúp.']
       ]}
     ],support:'Giáo viên: “Cô sẽ cùng em xử lý, không trách em vì đã trả lời. Chặn và báo cáo không thay thế việc tìm hỗ trợ nếu vẫn bị đe dọa.”',
     puzzle:{kind:'actions',title:'Bảng điều khiển thoát hiểm',steps:[
-      {prompt:'Minh đang an toàn cùng cô giáo. Bước đầu tiên trên hồ sơ giả lập?',options:['Xóa hết tin nhắn ngay.','Lưu bằng chứng liên quan vào hồ sơ riêng.'],correct:1,explain:'Đã lưu bản ghi mẫu gồm tên tài khoản, nội dung và thời điểm vào hồ sơ mô phỏng. Không tải hoặc gửi dữ liệu thật.'},
+      {prompt:'Minh đang an toàn cùng cô giáo. Trên bảng mô phỏng, nên làm gì trước?',options:['Xóa hết tin nhắn ngay.','Lưu bằng chứng liên quan vào hồ sơ riêng.'],correct:1,explain:'Đã lưu bản ghi mẫu gồm tên tài khoản, nội dung và thời điểm vào hồ sơ mô phỏng. Không tải hoặc gửi dữ liệu thật.'},
       {prompt:'Bằng chứng đã được lưu. Làm gì để hạn chế liên lạc?',options:['Chặn Shadow_88 trên giao diện mô phỏng.','Thử thách đối phương tiếp tục nhắn.'],correct:0,explain:'Đã chặn tài khoản trong mô phỏng. Ngoài đời, tài khoản khác vẫn có thể tiếp cận; hãy báo người hỗ trợ.'},
       {prompt:'Chọn cách báo cáo phù hợp với hồ sơ.',options:['Báo cáo hành vi đe dọa/ép cung cấp thông tin và xác nhận kế hoạch với cô giáo.','Báo cáo sai lý do rồi tự xử lý tiếp.'],correct:0,explain:'Đã ghi nhận báo cáo và kế hoạch hỗ trợ trong mô phỏng. Nền tảng cần thời gian xem xét; em không cần chờ kết quả mới tìm trợ giúp.'}
-    ]},lesson:'Dừng tương tác, lưu bằng chứng khi an toàn, chặn, báo cáo và tìm người hỗ trợ. Nếu nguy hiểm tức thời, ưu tiên đến nơi an toàn và nhờ trợ giúp ngay.',next:'Minh đã có một kế hoạch an toàn và người đồng hành. Hành trình kết thúc bằng sự chủ động tìm trợ giúp, không phải tự đối đầu với Shadow_88.'
+    ]},lesson:'Dừng tương tác, lưu bằng chứng khi an toàn, chặn, báo cáo và tìm người hỗ trợ. Nếu nguy hiểm tức thời, ưu tiên đến nơi an toàn và nhờ trợ giúp ngay.',next:'Minh không còn phải lo lắng một mình. Cậu đã biết cách bảo vệ tài khoản, giữ lại bằng chứng và tìm người cùng giúp. Đó là lối thoát của câu chuyện này.'
   }
 };
